@@ -25,6 +25,16 @@ void APawnTank::BeginPlay()
 void APawnTank::HandleDestruction() 
 {
     Super::HandleDestruction();
+    bIsPlayerAlive = false;
+
+    // Hide tank from view.
+    SetActorHiddenInGame(true);
+    SetActorTickEnabled(false);
+}
+
+bool APawnTank::GetIsPlayerAlive() 
+{
+    return bIsPlayerAlive;
 }
 
 // Called every frame
